@@ -27,9 +27,9 @@ function buildQuery(info, allergens) {
     console.log(longitude, latitude);
     url = `https://api.allergyeats.com/api/v1/restaurant/query?take=20&allergynames=${allergenString}&distance=20&location=${latitude}%2C${longitude}`
 
-    fetch(url).then((json) => {
-      console.log(json);
-      info.innerHTML = json;
+    fetch(url).then((res) => {
+      let x = res.json()
+      console.log(x);
     }).catch(() => {
       info.innerHTML = 'could not get data';
     });
