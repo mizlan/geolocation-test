@@ -30,7 +30,7 @@ function buildQuery(info, allergens) {
     fetch(url).then((json) => {
       console.log(json);
       info.innerHTML = json;
-    }).error(() => {
+    }).catch(() => {
       info.innerHTML = 'could not get data';
     });
   }
