@@ -16,8 +16,8 @@ function buildQuery(allergens) {
   // use Geolocation API:
   // https://developer.mozilla.org/en-US/docs/Web/API/GeolocationCoordinates
   // to get coordinates
-  longitude = GeolocationCoordinates.longitude;
-  latitude = GeolocationCoordinates.latitude;
+  longitude = navigator.geolocation.longitude;
+  latitude = navigator.geolocation.latitude;
   console.log(longitude, latitude)
   // allergenString = allergens.join('%2C'); // URI-encoded comma
   allergenString = allergens.join(','); // URI-encoded comma
