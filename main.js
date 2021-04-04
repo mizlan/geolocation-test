@@ -21,6 +21,7 @@ function buildQuery(allergens) {
 
   // after we retrieve the URL
   function onRetrieve(position) {
+    document.getElementById('restaurant-info').innerHTML = 'fetching data'
     const latitude  = position.coords.latitude;
     const longitude = position.coords.longitude;
     console.log(longitude, latitude);
