@@ -7,6 +7,13 @@ body {
 }
 
 .info-box {
-  background-color: yellow;
-  padding: 1rem;
+  font-family: monospace;
+  background-color: #f2ec77;
+  border-style: solid;
+  /* border-left-width: 0.5rem; */
+  border-width: 0px;
+  border-left-width: 0.6rem;
+  border-left-color: #f2ea49;
+  padding: 0.7rem;
+  margin-top: 0.5rem;
 }
