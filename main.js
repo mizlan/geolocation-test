@@ -30,11 +30,11 @@ function buildQuery(allergens) {
   function onError() {
     // tell the user their location could not be retrieved
   }
+
+  document.getElementById('restaurant-info').innerHTML = 'getting location...'
   navigator.geolocation.getCurrentPosition(onRetrieve, onError);
 
 }
-
-
 
 // wait till the HTML loads
 window.onload = function() {
