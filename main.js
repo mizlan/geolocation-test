@@ -16,14 +16,25 @@ function buildQuery(allergens) {
   // use Geolocation API:
   // https://developer.mozilla.org/en-US/docs/Web/API/GeolocationCoordinates
   // to get coordinates
-  longitude = navigator.geolocation.longitude;
-  latitude = navigator.geolocation.latitude;
-  console.log(longitude, latitude)
   // allergenString = allergens.join('%2C'); // URI-encoded comma
-  allergenString = allergens.join(','); // URI-encoded comma
-  url = `https://api.allergyeats.com/api/v1/restaurant/query?take=20&allergynames=${allergenString}&distance=20&location=${latitude}%2C${longitude}`
-  fetch(url)
+  allergenString = allergens.join(',');
+
+  // after we retrieve the URL
+  function onRetrieve(position) {
+    const latitude  = position.coords.latitude;
+    const longitude = position.coords.longitude;
+    console.log(longitude, latitude);
+    url = `https://api.allergyeats.com/api/v1/restaurant/query?take=20&allergynames=${allergenString}&distance=20&location=${latitude}%2C${longitude}`
+    // fetch(url);
+  }
+  function onError() {
+    // tell the user their location could not be retrieved
+  }
+  navigator.geolocation.getCurrentPosition(onRetrieve, onError);
+
 }
+
+
 
 // wait till the HTML loads
 window.onload = function() {
